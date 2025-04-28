@@ -59,24 +59,24 @@ const ContactForm = () => {
                     {/* Contact Details */}
                     <div className="space-y-6">
                         <div className="flex items-center space-x-4">
-                            <div className="bg-indigo-100 p-3 rounded-lg">
-                                <BiPhone className="w-6 h-6 text-primary" />
+                            <div className="bg-cyan-100 p-3 rounded-lg">
+                                <BiPhone className="w-6 h-6 text-cyan-700" />
                             </div>
                             <div>
                                 <p className="text-gray-600">Phone</p>
-                                <a href="tel:+919811396858" className="text-gray-900 hover:text-primary">
+                                <a href="tel:+919811396858" className="text-gray-900 hover:text-cyan-700">
                                     +91 9811396858
                                 </a>
                             </div>
                         </div>
 
                         <div className="flex items-center space-x-4">
-                            <div className="bg-indigo-100 p-3 rounded-lg">
-                                <CgMail className="w-6 h-6 text-primary" />
+                            <div className="bg-cyan-100 p-3 rounded-lg">
+                                <CgMail className="w-6 h-6 text-cyan-700" />
                             </div>
                             <div>
                                 <p className="text-gray-600">Email</p>
-                                <a href="mailto:hello@gogetwell.ai" className="text-gray-900 hover:text-primary">
+                                <a href="mailto:hello@gogetwell.ai" className="text-gray-900 hover:text-cyan-700">
                                     hello@gogetwell.ai
                                 </a>
                             </div>
@@ -90,16 +90,16 @@ const ContactForm = () => {
                             <Link
                                 to="https://x.com/gogetwellai"
                                 target="_blank"
-                                className="p-3 bg-indigo-100 rounded-full hover:bg-indigo-200 transition"
+                                className="p-3 bg-cyan-100 rounded-full hover:bg-cyan-200 transition"
                             >
-                                <BsTwitter className="w-5 h-5 text-primary" />
+                                <BsTwitter className="w-5 h-5 text-cyan-700" />
                             </Link>
                             <Link
                                 to="https://www.linkedin.com/company/gogetwellai/"
                                 target="_blank"
-                                className="p-3 bg-indigo-100 rounded-full hover:bg-indigo-200 transition"
+                                className="p-3 bg-cyan-100 rounded-full hover:bg-cyan-200 transition"
                             >
-                                <BsLinkedin className="w-5 h-5 text-primary" />
+                                <BsLinkedin className="w-5 h-5 text-cyan-700" />
                             </Link>
                         </div>
                     </div>
@@ -107,12 +107,11 @@ const ContactForm = () => {
 
                 {/* Right: Contact Form */}
                 <div className="bg-gray-50 p-8 rounded-2xl shadow-xl">
-                    <form  className="space-y-6" onSubmit={handleSubmit}>
+                    <form className="space-y-6" onSubmit={handleSubmit}>
                         {/* Fullname */}
                         <div className="relative">
                             <BiUser
-                                className={`absolute left-4 top-1/2 transform -translate-y-1/2 ${focused === 'fullname' || formState.fullname ? 'text-primary' : 'text-gray-400'
-                                    }`}
+                                className={`absolute left-4 top-1/2 transform -translate-y-1/2 ${focused === 'fullname' || formState.fullname ? 'text-cyan-700' : 'text-gray-400'}`}
                             />
                             <input
                                 required
@@ -120,7 +119,7 @@ const ContactForm = () => {
                                 name="fullname"
                                 value={formState.fullname}
                                 placeholder="Full Name"
-                                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+                                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-700 focus:border-cyan-700 transition"
                                 onChange={handleChange}
                                 onBlur={() => setFocused('')}
                                 onFocus={() => setFocused('fullname')}
@@ -130,8 +129,7 @@ const ContactForm = () => {
                         {/* Email */}
                         <div className="relative">
                             <CgMail
-                                className={`absolute left-4 top-1/2 transform -translate-y-1/2 ${focused === 'email' || formState.email ? 'text-primary' : 'text-gray-400'
-                                    }`}
+                                className={`absolute left-4 top-1/2 transform -translate-y-1/2 ${focused === 'email' || formState.email ? 'text-cyan-700' : 'text-gray-400'}`}
                             />
                             <input
                                 required
@@ -139,7 +137,7 @@ const ContactForm = () => {
                                 name="email"
                                 value={formState.email}
                                 placeholder="Email Address"
-                                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+                                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-700 focus:border-cyan-700 transition"
                                 onChange={handleChange}
                                 onFocus={() => setFocused('email')}
                                 onBlur={() => setFocused('')}
@@ -154,7 +152,7 @@ const ContactForm = () => {
                                 value={formState.message}
                                 rows={4}
                                 placeholder="Your Message"
-                                className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
+                                className="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-700 focus:border-cyan-700 transition"
                                 onChange={handleChange}
                                 onFocus={() => setFocused('message')}
                                 onBlur={() => setFocused('')}
@@ -165,7 +163,7 @@ const ContactForm = () => {
                         <Button
                             type="submit"
                             loading={isSubmitting}
-                            className="w-full py-3 px-6 bg-primary text-white rounded-lg hover:bg-transparent hover:border-primary hover:text-primary border-2 border-primary transition-all duration-300 flex justify-center items-center gap-2"
+                            className="w-full py-3 px-6 bg-cyan-700 text-white rounded-lg hover:bg-transparent hover:border-cyan-700 hover:text-cyan-700 border-2 border-cyan-700 transition-all duration-300 flex justify-center items-center gap-2"
                         >
                             <span>Send Message</span>
                             <BiSend className="w-5 h-5" />

@@ -10,7 +10,7 @@ const solutions = [
     icon: <BiGlobeAlt />,
     title: "Custom AI-Powered Website",
     description: "Intelligent, responsive websites tailored to healthcare providers with automated patient interactions.",
-    color: "bg-blue-500"
+    color: "bg-cyan-500"
   },
   {
     icon: <FaUserSecret />,
@@ -79,15 +79,15 @@ const FeaturesGrid: React.FC = () => {
           {solutions.map((feature) => (
             <div
               key={feature.title}
-              className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center transition-transform hover:scale-105 hover:shadow-lg duration-300"
+              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition-transform hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-cyan-400 duration-300"
             >
               {/* Feature Icon */}
-              <div className="text-primary mb-4">
+              <div className={`text-xl mb-4 text-${feature.color.split('-')[0]}-700`}>
                 {feature.icon}
               </div>
 
               {/* Feature Title */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {feature.title}
               </h3>
 

@@ -46,8 +46,7 @@ const InfoSection: React.FC = () => {
                 {sections.map((section, idx) => (
                     <div
                         key={idx}
-                        className={`flex flex-col-reverse ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                            } items-center gap-12 mb-24`}
+                        className={`flex flex-col-reverse ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 mb-24`}
                     >
                         {/* Image */}
                         <div className="w-full lg:w-1/2">
@@ -60,10 +59,10 @@ const InfoSection: React.FC = () => {
 
                         {/* Content */}
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
                                 {section.title}
                             </h2>
-                            <div className="h-1 w-20 bg-primary rounded-full mb-8"></div>
+                            <div className="h-1 w-20 bg-cyan-500 rounded-full mb-8"></div>
 
                             <p className="text-gray-600 leading-relaxed mb-6">{section.content1}</p>
                             <p className="text-gray-600 leading-relaxed">{section.content2}</p>
@@ -71,9 +70,9 @@ const InfoSection: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                                 {section.points.map((point, idx2) => (
                                     <div key={idx2} className="flex gap-4 items-start">
-                                        <div className="p-3 bg-blue-100 rounded-lg">
+                                        <div className="p-3 bg-cyan-100 rounded-lg">
                                             <svg
-                                                className="w-6 h-6 text-primary"
+                                                className="w-6 h-6 text-cyan-700"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"

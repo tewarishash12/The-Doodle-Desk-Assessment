@@ -17,7 +17,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     aboutRef,
 }) => {
     return (
-        <div className="relative w-full bg-[#01052f] overflow-hidden">
+        <div className="relative w-full bg-gray-50 overflow-hidden">
             {/* Navbar */}
             <HomeNavbar
                 scrollToSection={scrollToSection}
@@ -40,14 +40,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
                 {/* Main Content */}
                 <div className="z-10 max-w-4xl mx-auto">
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 animate-fade-in">
-                        <span className="text-primary">AI Front Office </span> <br />
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 animate-fade-in">
+                        <span className="text-cyan-700">AI Front Office </span> <br />
                         for Healthcare Agents
                     </h1>
 
-                    <p className="text-lg md:text-2xl text-gray-300 mb-8">
-                        Create your <span className="text-primary font-bold">AI Store</span> in 2 minutes. <br />
-                        Scale your practice with <span className="font-bold text-primary">Digital Marketing</span>.
+                    <p className="text-lg md:text-2xl text-gray-600 mb-8">
+                        Create your <span className="text-cyan-700 font-bold">AI Store</span> in 2 minutes. <br />
+                        Scale your practice with <span className="font-bold text-cyan-700">Digital Marketing</span>.
                     </p>
 
                     {/* CTA Button */}
@@ -56,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <Button
                                 block
                                 variant="solid"
-                                className="rounded-full max-w-xs text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
+                                className="rounded-full max-w-xs text-lg px-8 py-4 hover:bg-cyan-800 hover:scale-105 transition-all duration-300"
                             >
                                 Get Started
                             </Button>
@@ -64,17 +64,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     </div>
 
                     {/* Stats Section */}
-                    <div className="flex flex-wrap justify-center gap-12 mt-12 text-white">
+                    <div className="flex flex-wrap justify-center gap-12 mt-12 text-gray-900">
                         <div className="text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold">2100<span className="text-primary">+</span></h2>
+                            <h2 className="text-3xl md:text-4xl font-bold">2100<span className="text-cyan-700">+</span></h2>
                             <p className="mt-2 text-sm md:text-base">Qualified Doctors</p>
                         </div>
                         <div className="text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold">1000<span className="text-primary">+</span></h2>
+                            <h2 className="text-3xl md:text-4xl font-bold">1000<span className="text-cyan-700">+</span></h2>
                             <p className="mt-2 text-sm md:text-base">Hospitals</p>
                         </div>
                         <div className="text-center">
-                            <h2 className="text-3xl md:text-4xl font-bold">800<span className="text-primary">+</span></h2>
+                            <h2 className="text-3xl md:text-4xl font-bold">800<span className="text-cyan-700">+</span></h2>
                             <p className="mt-2 text-sm md:text-base">Treatment Plans</p>
                         </div>
                     </div>

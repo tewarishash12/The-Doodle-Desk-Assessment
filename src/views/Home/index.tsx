@@ -34,26 +34,32 @@ const Home: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="bg-white overflow-hidden w-[100vw] h-[100vh] overflow-y-scroll">
+		<div className="bg-gray-50 text-gray-900 font-inter overflow-hidden w-[100vw] h-[100vh] overflow-y-scroll">
 			<div className="px-4 sm:px-6 lg:px-8">
+				{/* Hero Section */}
 				<HeroSection scrollToSection={scrollToSection} featuresRef={FqRef} contactRef={contactRef} aboutRef={aboutRef} />
 
+				{/* Features Grid */}
 				<div className="relative mt-20">
 					<FeaturesGrid />
 				</div>
 
+				{/* Info Section */}
 				<div className="relative mt-20" ref={aboutRef}>
 					<InfoSection />
 				</div>
 
+				{/* FAQs Section */}
 				<div className="relative mt-20" ref={FqRef}>
 					<HomeFAQs />
 				</div>
 
+				{/* Contact Form Section */}
 				<div className="relative mt-20" ref={contactRef}>
 					<ContactForm />
 				</div>
 
+				{/* Footer */}
 				<div className="relative mt-20">
 					<MainFooter />
 				</div>

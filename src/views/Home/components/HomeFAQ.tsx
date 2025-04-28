@@ -5,17 +5,16 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => (
     <div className="border-b border-gray-200">
         <button
             onClick={onClick}
-            className="w-full py-4 flex justify-between items-center text-left transition-all duration-300 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-lg"
+            className="w-full py-4 flex justify-between items-center text-left transition-all duration-300 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg"
         >
             <h3 className="text-lg font-medium text-gray-900">{question}</h3>
             <div className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                <BiChevronDown className="w-6 h-6 text-indigo-600" />
+                <BiChevronDown className="w-6 h-6 text-cyan-700" />
             </div>
         </button>
 
         <div
-            className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+            className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
         >
             <div className="text-gray-600 pl-2 pr-6 pb-6">{answer}</div>
         </div>
@@ -40,12 +39,12 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <section className="py-20 bg-gradient-to-br from-cyan-50 to-purple-50">
             <div className="max-w-4xl mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                    <div className="h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+                    <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
                 </div>
 
                 {/* FAQ Items */}
