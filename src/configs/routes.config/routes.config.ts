@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 import authRoute from './authRoute';
 import othersRoute from './othersRoute';
-// import sharedRoutes from './sharedRoutes'; // 👈 Import shared routes
+import sharedRoutes from './sharedRoutes'; // 👈 Import shared routes
 import type { Routes } from '@/@types/routes';
 
-export const publicRoutes: Routes = [...authRoute];
+export const publicRoutes: Routes = [...authRoute, ...sharedRoutes];
 
 export const protectedRoutes: Routes = [
     {
@@ -43,6 +43,6 @@ export const protectedRoutes: Routes = [
         component: lazy(() => import('@/views/demo/GroupCollapseMenuItemView2')),
         authority: [],
     },
-    // ...sharedRoutes, // 👈 Include shared routes
+    ...sharedRoutes, // 👈 Include shared routes
     ...othersRoute,
 ];
