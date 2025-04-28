@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { BiCreditCard, BiGlobeAlt, BiMessageSquare, BiSearch, BiTrendingUp } from 'react-icons/bi';
 import { BsDatabase } from 'react-icons/bs';
@@ -76,10 +77,14 @@ const FeaturesGrid: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((feature) => (
-            <div
+          {solutions.map((feature, index) => (
+            <motion.div
               key={feature.title}
               className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition-transform hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-cyan-400 duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }} // Stagger animations slightly for each card
+              viewport={{ once: true }} // Only animate once when entering the viewport
             >
               {/* Feature Icon */}
               <div className={`text-xl mb-4 text-${feature.color.split('-')[0]}-700`}>
@@ -95,7 +100,7 @@ const FeaturesGrid: React.FC = () => {
               <p className="text-gray-600 text-base">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

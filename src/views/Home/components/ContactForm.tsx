@@ -4,6 +4,7 @@ import { BiPhone, BiSend, BiUser } from 'react-icons/bi';
 import { BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { CgMail } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ContactForm = () => {
     const [formState, setFormState] = useState({
@@ -48,7 +49,12 @@ const ContactForm = () => {
         <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
                 {/* Left: Contact Info */}
-                <div className="space-y-10">
+                <motion.div
+                    className="space-y-10"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <div>
                         <h2 className="text-4xl font-bold text-gray-900 mb-4">Let&apos;s get in touch!</h2>
                         <p className="text-gray-600 text-lg">
@@ -103,10 +109,15 @@ const ContactForm = () => {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Right: Contact Form */}
-                <div className="bg-gray-50 p-8 rounded-2xl shadow-xl">
+                <motion.div
+                    className="bg-gray-50 p-8 rounded-2xl shadow-xl"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         {/* Fullname */}
                         <div className="relative">
@@ -169,7 +180,7 @@ const ContactForm = () => {
                             <BiSend className="w-5 h-5" />
                         </Button>
                     </form>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import aboutUs from '@/assets/images/about_us.gif';
 import mission from '@/assets/images/our_mission.gif';
@@ -44,16 +45,23 @@ const InfoSection: React.FC = () => {
         <section className="py-20 bg-white scroll-smooth">
             <div className="max-w-7xl mx-auto px-6">
                 {sections.map((section, idx) => (
-                    <div
+                    <motion.div
                         key={idx}
                         className={`flex flex-col-reverse ${section.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 mb-24`}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: idx * 0.1 }} // Stagger animations slightly for each section
+                        viewport={{ once: true }} // Only trigger animation once when it enters the viewport
                     >
                         {/* Image */}
                         <div className="w-full lg:w-1/2">
-                            <img
+                            <motion.img
                                 src={section.img}
                                 alt={section.title}
                                 className="rounded-xl w-full h-auto object-cover shadow-md"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1 }}
                             />
                         </div>
 
@@ -88,7 +96,7 @@ const InfoSection: React.FC = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

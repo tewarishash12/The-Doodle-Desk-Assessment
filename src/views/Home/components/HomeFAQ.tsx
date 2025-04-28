@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
+import { motion } from 'framer-motion';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => (
     <div className="border-b border-gray-200">
@@ -22,7 +23,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => (
 );
 
 const FAQ = () => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null); // Now default: all collapsed
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const faqData = [
         { que: 'What is gogetwell.ai?', ans: 'gogetwell.ai is an AI-powered platform that helps healthcare facilitators streamline their operations, from building customized websites to managing patient leads and enhancing communication.' },
@@ -48,17 +49,29 @@ const FAQ = () => {
                 </div>
 
                 {/* FAQ Items */}
-                <div className="bg-white rounded-2xl shadow-2xl p-6 space-y-4">
+                <motion.div
+                    className="bg-white rounded-2xl shadow-2xl p-6 space-y-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
                     {faqData.map((faq, index) => (
-                        <FAQItem
+                        <motion.div
                             key={index}
-                            question={faq.que}
-                            answer={faq.ans}
-                            isOpen={index === openIndex}
-                            onClick={() => setOpenIndex(index === openIndex ? null : index)}
-                        />
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.05 }} // Stagger animations slightly
+                            viewport={{ once: true }}
+                        >
+                            <FAQItem
+                                question={faq.que}
+                                answer={faq.ans}
+                                isOpen={index === openIndex}
+                                onClick={() => setOpenIndex(index === openIndex ? null : index)}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

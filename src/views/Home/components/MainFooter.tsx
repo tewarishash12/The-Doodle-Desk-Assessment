@@ -1,5 +1,6 @@
 import { FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface LinkItem {
     text: string;
@@ -17,28 +18,52 @@ const MainFooter: React.FC = () => {
     return (
         <footer className="border-t border-gray-200 bg-white p-4">
             <div className="w-full flex flex-wrap items-center justify-between mx-auto p-2 600px:px-12">
-                {/* Copyright for all screen sizes */}
-                <h1 className="text-sm text-gray-900 md:hidden text-center w-full">
+                {/* Copyright with animation */}
+                <motion.h1
+                    className="text-sm text-gray-900 md:hidden text-center w-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                >
                     ©{new Date().getFullYear()} gogetwell.ai
-                </h1>
-                <h1 className="text-xs text-gray-900 hidden md:block">
-                    ©{new Date().getFullYear()} gogetwell.ai
-                </h1>
+                </motion.h1>
 
-                {/* Footer Links */}
-                <ul className="mt-4 md:mt-0 flex gap-x-3 flex-wrap gap-y-3 mx-auto">
+                <motion.h1
+                    className="text-xs text-gray-900 hidden md:block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                    ©{new Date().getFullYear()} gogetwell.ai
+                </motion.h1>
+
+                {/* Footer Links with animation */}
+                <motion.ul
+                    className="mt-4 md:mt-0 flex gap-x-3 flex-wrap gap-y-3 mx-auto"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                >
                     {links.map((item, i) => (
-                        <li
+                        <motion.li
                             key={i}
                             className="text-black hover:underline hover:text-cyan-700 text-xs text-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
                         >
                             <Link to={item.path}>{item.text}</Link>
-                        </li>
+                        </motion.li>
                     ))}
-                </ul>
+                </motion.ul>
 
-                {/* Social Links */}
-                <div className="items-center gap-2 md:gap-8 hidden md:flex">
+                {/* Social Links with animation */}
+                <motion.div
+                    className="items-center gap-2 md:gap-8 hidden md:flex"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                >
                     <Link
                         to="https://x.com/gogetwellai"
                         target="_blank"
@@ -53,7 +78,7 @@ const MainFooter: React.FC = () => {
                     >
                         <FaLinkedinIn size={25} className="text-cyan-700 hover:text-cyan-500 transition" />
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </footer>
     );
