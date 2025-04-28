@@ -1,4 +1,4 @@
-import PatientSignUpPopup from '@/views/auth/PatientSignUp/Popup';
+import PatientSignUpPopup from '@/views/auth/SignUp/SignUp';
 import React from 'react';
 import { BiBot, BiGlobe, BiMessageSquare, BiTrendingUp } from 'react-icons/bi';
 import { CgLock } from 'react-icons/cg';

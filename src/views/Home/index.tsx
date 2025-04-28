@@ -10,71 +10,55 @@ const Home: React.FC = () => {
 	const contactRef = useRef(null);
 	const aboutRef = useRef(null);
 	const FqRef = useRef(null);
-	const scrollToSection = (ref) => {
+
+	const scrollToSection = (ref: any) => {
 		ref.current.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	useEffect(() => {
-		let lastScrollTop = 0; // Initialize lastScrollTop variable
-
+		let lastScrollTop = 0;
 		const handleScroll = () => {
 			const hcf = document.querySelector(".hcf-profile");
-			const scrollTop =
-				document.documentElement.scrollTop || document.body.scrollTop;
-
+			const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 			if (scrollTop > lastScrollTop) {
-				if (hcf) {
-					hcf.classList.add("hcf-profile-fixed");
-				}
-			} else if (scrollTop < lastScrollTop) {
-				if (hcf) {
-					hcf.classList.remove("hcf-profile-fixed");
-				}
+				if (hcf) hcf.classList.add("hcf-profile-fixed");
+			} else {
+				if (hcf) hcf.classList.remove("hcf-profile-fixed");
 			}
-
 			lastScrollTop = scrollTop;
 		};
-
-
-		// Add scroll event listener
 		window.addEventListener("scroll", handleScroll);
-
-		// Cleanup the event listener on unmount
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+
 	return (
-		<>
-			<div>
-				<div className="">
-					<HeroSection
-						scrollToSection={scrollToSection}
-						featuresRef={FqRef}
-						contactRef={contactRef}
-						aboutRef={aboutRef}
-					/>
-					{/* <div className='bg-white'>
-						<ClaimLandingSection />
-					</div> */}
-					<div className='!bg-[#eff6ff] relative'>
-						<FeaturesGrid />
-					</div>
-					<div className='!bg-white relative' ref={aboutRef}>
-						<InfoSection />
-					</div>
-					<div className='relative bg-white' ref={FqRef}>
-						<HomeFAQs />
-					</div>
-					<div className='bg-white relative' ref={contactRef}>
-						<ContactForm />
-					</div>
-					{/* <div className='bg-white'>
-						<MainFooter />
-					</div> */}
+		<div className="bg-white overflow-hidden w-[100vw] h-[100vh] overflow-y-scroll">
+			<div className="px-4 sm:px-6 lg:px-8">
+				<HeroSection scrollToSection={scrollToSection} featuresRef={FqRef} contactRef={contactRef} aboutRef={aboutRef} />
+
+				<div className="relative mt-20">
+					<FeaturesGrid />
+				</div>
+
+				<div className="relative mt-20" ref={aboutRef}>
+					<InfoSection />
+				</div>
+
+				<div className="relative mt-20" ref={FqRef}>
+					<HomeFAQs />
+				</div>
+
+				<div className="relative mt-20" ref={contactRef}>
+					<ContactForm />
+				</div>
+
+				<div className="relative mt-20">
+					<MainFooter />
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

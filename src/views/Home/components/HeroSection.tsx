@@ -16,10 +16,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     contactRef,
     aboutRef,
 }) => {
-
-
     return (
-        <div className="!bg-[#01052f] w-full relative flex flex-col py-2 md:py-5 overflow-hidden">
+        <div className="relative w-full bg-[#01052f] overflow-hidden">
+            {/* Navbar */}
             <HomeNavbar
                 scrollToSection={scrollToSection}
                 featuresRef={featuresRef}
@@ -27,96 +26,60 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 aboutRef={aboutRef}
             />
 
-            <div className='min-h-[90vh] flex items-center'>
-                {/* Background video for larger screens */}
-                {/* <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="hidden md:block absolute top-0 left-0 min-w-full min-h-full object-cover z-[-10]"
-                >
-                    <source src={bgVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video> */}
-
-                {/* Background image for mobile */}
+            {/* Hero Content */}
+            <div className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 py-12 md:py-20">
+                {/* Mobile background image */}
                 <img
                     src={smallBG}
                     alt="background_image"
-                    className="md:hidden h-full w-full object-cover absolute top-0 left-0 z-[-10]"
+                    className="absolute top-0 left-0 w-full h-full object-cover md:hidden z-[-10]"
                 />
 
-                {/* Overlay to ensure text readability */}
+                {/* Dark overlay */}
                 <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-5]"></div>
 
-                <div className="relative z-10 text-white w-full flex flex-col lg:flex-row-reverse md:mt-6 lg:mt-0 lg:items-center lg:justify-between px-4 max-w-[1538px] mx-auto">
-                    {/* Video Section */}
-                    <div className="lg:w-5/12 mt-8 lg:mt-0 lg:mb-0 mb-6">
-                        {/* <div className="relative overflow-hidden pt-[56.25%] rounded-lg shadow-lg">
-                            <iframe
-                                src={`https://www.youtube.com/embed/xQl8i2sO_Ls?autoplay=1&mute=${isMuted ? 1 : 0
-                                    }&loop=1&playlist=xQl8i2sO_Ls&controls=0&showinfo=0&rel=0`}
-                                title="Product Demo Video"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="absolute top-0 left-0 w-full h-full"
-                            ></iframe>
-                            <button
-                                onClick={toggleMute}
-                                className="absolute bottom-4 right-4 bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 transition-all"
+                {/* Main Content */}
+                <div className="z-10 max-w-4xl mx-auto">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 animate-fade-in">
+                        <span className="text-primary">AI Front Office </span> <br />
+                        for Healthcare Agents
+                    </h1>
+
+                    <p className="text-lg md:text-2xl text-gray-300 mb-8">
+                        Create your <span className="text-primary font-bold">AI Store</span> in 2 minutes. <br />
+                        Scale your practice with <span className="font-bold text-primary">Digital Marketing</span>.
+                    </p>
+
+                    {/* CTA Button */}
+                    <div className="flex justify-center">
+                        <HcfSignupPopup popupButtonStatus buttonChildren={
+                            <Button
+                                block
+                                variant="solid"
+                                className="rounded-full max-w-xs text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
                             >
-                                {isMuted ? (
-                                    <IoVolumeMuteOutline size={24} />
-                                ) : (
-                                    <IoVolumeHighOutline size={24} />
-                                )}
-                            </button>
-                        </div> */}
+                                Get Started
+                            </Button>
+                        } />
                     </div>
 
-                    {/* Content Section */}
-                    <div className="lg:w-1/2 lg:pr-8">
-                        <h1 className="text-2xl md:text-4xl font-semibold mb-4 capitalize text-white">
-                            <span className="text-primary">AI front office </span> <br />
-                            for healthcare agents
-                        </h1>
-                        <p style={{ lineHeight: '0.7' }} className="text-lg my-8 font-light">
-                            Create <span className="text-primary font-bold">AI Store</span>  in 2 min <br />
-                            <br />
-                            Scale with{' '}
-                            <span className="font-bold text-primary">
-                                Digital Marketing
-                            </span>{' '}
-                        </p>
-                        <div>
-                            <HcfSignupPopup popupButtonStatus buttonChildren={<Button block variant='solid' className='rounded-[5px] max-w-[200px]'>Get Started</Button>} />
+                    {/* Stats Section */}
+                    <div className="flex flex-wrap justify-center gap-12 mt-12 text-white">
+                        <div className="text-center">
+                            <h2 className="text-3xl md:text-4xl font-bold">2100<span className="text-primary">+</span></h2>
+                            <p className="mt-2 text-sm md:text-base">Qualified Doctors</p>
                         </div>
-                        <div className="text-white flex gap-12 mt-8 flex-wrap">
-                            <div>
-                                <h1 className="text-3xl font-bold text-white">
-                                    2100<span className="text-primary ml-1">+</span>
-                                </h1>
-                                <p className="text-lg capitalize">qualified doctors</p>
-                            </div>
-                            <div>
-                                <h1 className="text-3xl font-bold text-white">
-                                    1000<span className="text-primary ml-1">+</span>
-                                </h1>
-                                <p className="text-lg capitalize">hospitals</p>
-                            </div>
-                            <div>
-                                <h1 className="text-3xl font-bold text-white">
-                                    800<span className="text-primary ml-1">+</span>
-                                </h1>
-                                <p className="text-lg capitalize">Treatment Plans</p>
-                            </div>
+                        <div className="text-center">
+                            <h2 className="text-3xl md:text-4xl font-bold">1000<span className="text-primary">+</span></h2>
+                            <p className="mt-2 text-sm md:text-base">Hospitals</p>
+                        </div>
+                        <div className="text-center">
+                            <h2 className="text-3xl md:text-4xl font-bold">800<span className="text-primary">+</span></h2>
+                            <p className="mt-2 text-sm md:text-base">Treatment Plans</p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

@@ -64,40 +64,42 @@ const solutions = [
 
 const FeaturesGrid: React.FC = () => {
   return (
-    <div className="py-16 px-4 md:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 bg-gray-50 h-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Comprehensive Solutions
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            Key Features to Power Your Growth
           </h2>
-          <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+          <p className="mt-4 text-lg text-gray-500">
+            Everything you need to scale your practice and reach more patients, powered by AI.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => {
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <div className="p-6">
-                  <div className={`${solution.color} inline-flex p-3 rounded-lg text-white mb-4`}>
-                    {solution.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {solution.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {solution.description}
-                  </p>
-                </div>
-                <div className={`h-1 w-full absolute bottom-0 ${solution.color} opacity-75`}></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {solutions.map((feature) => (
+            <div
+              key={feature.title}
+              className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center transition-transform hover:scale-105 hover:shadow-lg duration-300"
+            >
+              {/* Feature Icon */}
+              <div className="text-primary mb-4">
+                {feature.icon}
               </div>
-            );
-          })}
+
+              {/* Feature Title */}
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {feature.title}
+              </h3>
+
+              {/* Feature Description */}
+              <p className="text-gray-600 text-base">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

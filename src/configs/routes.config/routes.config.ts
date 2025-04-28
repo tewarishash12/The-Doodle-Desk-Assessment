@@ -1,12 +1,12 @@
-import { lazy } from 'react'
-import authRoute from './authRoute'
-import othersRoute from './othersRoute'
-import type { Routes } from '@/@types/routes'
+import { lazy } from 'react';
+import authRoute from './authRoute';
+import othersRoute from './othersRoute';
+// import sharedRoutes from './sharedRoutes'; // 👈 Import shared routes
+import type { Routes } from '@/@types/routes';
 
-export const publicRoutes: Routes = [...authRoute]
+export const publicRoutes: Routes = [...authRoute];
 
 export const protectedRoutes: Routes = [
-    /** Example purpose only, please remove */
     {
         key: 'singleMenuItem',
         path: '/single-menu-view',
@@ -34,24 +34,15 @@ export const protectedRoutes: Routes = [
     {
         key: 'groupMenu.collapse.item1',
         path: '/group-collapse-menu-item-view-1',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView1'),
-        ),
+        component: lazy(() => import('@/views/demo/GroupCollapseMenuItemView1')),
         authority: [],
     },
     {
         key: 'groupMenu.collapse.item2',
         path: '/group-collapse-menu-item-view-2',
-        component: lazy(
-            () => import('@/views/demo/GroupCollapseMenuItemView2'),
-        ),
+        component: lazy(() => import('@/views/demo/GroupCollapseMenuItemView2')),
         authority: [],
     },
-    {
-        key: 'homePage',
-        path: `/hello`,
-        component: lazy(() => import('@/views/Home')),
-        authority: []
-    },
+    // ...sharedRoutes, // 👈 Include shared routes
     ...othersRoute,
-]
+];
